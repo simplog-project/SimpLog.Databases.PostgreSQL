@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0;net6.0;net7.0;net8.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <PackageId>SimpLog.Databases.PostgreSQL</PackageId>
+    <Title>SimpLog.Databases.PostgreSQL</Title>
+    <Version>0.0.1-alpha1</Version>
+    <Authors>Georgi Chekanov</Authors>
+    <Company>Georgi Chekanov</Company>
+    <Product>SimpLog</Product>
+    <Description>Log from server into PostgreSQL database.</Description>
+    <Copyright>Copyright (c) Georgi Chekanov 2023</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>log, postgre log, simple log, postgre sql, database log</PackageTags>
+    <PackageReleaseNotes>- separated functionality for PostgreSQL log from SimpLog</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -42,7 +42,7 @@ namespace SimpLog.Databases.PostgreSQL.Models
         MySql,
         [Description("MariaDb")]
         MariaDb,
-        [Description("Postgre")]
+        [Description("PostgreSQL")]
         PostgreSql,
         [Description("Oracle")]
         Oracle,

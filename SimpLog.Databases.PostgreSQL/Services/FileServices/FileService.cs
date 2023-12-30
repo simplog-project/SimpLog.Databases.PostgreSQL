@@ -158,7 +158,7 @@ namespace SimpLog.Databases.PostgreSQL.Services.FileServices
                     return true;
                 case "MySql":
                     return true;
-                case "Postgre":
+                case "PostgreSQL":
                     return true;
                 case "Oracle":
                     return true;

@@ -16,6 +16,8 @@
     <PackageReleaseNotes>- separated functionality for PostgreSQL log from SimpLog</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <AssemblyName>SimpLog.Databases.PostgreSQL</AssemblyName>
+    <RootNamespace>SimpLog.Databases.PostgreSQL</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="README.md">
+    <None Include="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

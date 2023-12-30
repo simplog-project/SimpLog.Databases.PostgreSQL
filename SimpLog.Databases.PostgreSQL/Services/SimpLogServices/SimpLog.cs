@@ -15,25 +15,25 @@ namespace SimpLog.Databases.PostgreSQL.Services.SimpLogServices
         /// <param name="message"></param>
         /// <param name="saveInDatabase"></param>
         /// <returns></returns>
-        public async Task Trace(string message, bool? saveInDatabase = false)
+        public async Task Trace(string message, bool? saveInDatabase = true)
             => await _fileService.Save(message, LogType.Trace, saveInDatabase);
 
-        public async Task Debug(string message, bool? saveInDatabase = false)
+        public async Task Debug(string message, bool? saveInDatabase = true)
             => await _fileService.Save(message, LogType.Debug, saveInDatabase);
 
-        public async Task Info(string message, bool? saveInDatabase = false)
+        public async Task Info(string message, bool? saveInDatabase = true)
             => await _fileService.Save(message, LogType.Debug, saveInDatabase);
         
-        public async Task Notice(string message, bool? saveInDatabase = false)
+        public async Task Notice(string message, bool? saveInDatabase = true)
             => await _fileService.Save(message, LogType.Debug, saveInDatabase);
 
-        public async Task Warn(string message, bool? saveInDatabase = false)
+        public async Task Warn(string message, bool? saveInDatabase = true)
             => await _fileService.Save(message, LogType.Debug, saveInDatabase);
 
-        public async Task Error(string message, bool? saveInDatabase = false)
+        public async Task Error(string message, bool? saveInDatabase = true)
             => await _fileService.Save(message, LogType.Debug, saveInDatabase);
 
-        public async Task Fatal(string message, bool? saveInDatabase = false)
+        public async Task Fatal(string message, bool? saveInDatabase = true)
             => await _fileService.Save(message, LogType.Debug, saveInDatabase);
     }
 }

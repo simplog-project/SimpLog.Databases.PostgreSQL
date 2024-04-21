@@ -1,6 +1,5 @@
 # What is SimpLog
-Simple and very flexible tool for development with .NET Core. Saves logs to a file, or a database where you want. Also gives opportunity to 
-receive logs via email with the proper configuration.
+Simple and very flexible tool for development with .NET Core. Saves logs into an Postgre database.
 
 # Log Types in SimpLog
 | Type | Description |
@@ -92,7 +91,6 @@ Create simplog.json file in the root folder of your startup project. On the same
   {                              -> all of the below fields are optional
     "Database_Configuration": {             -> Database configurations
       "Connection_String": string,          -> Depending on database type, use the correct connection string.
-      "Global_Database_Type": string,       -> The type of a database. Please spell it correctly "PostgreSQL". N.B! Be carefull with spelling!
       "Global_Enabled_Save": bool           -> You can globally disable or enable saving into database. Default value is
     },
     "LogType": {

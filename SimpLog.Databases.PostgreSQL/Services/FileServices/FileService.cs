@@ -64,16 +64,18 @@ namespace SimpLog.Databases.PostgreSQL.Services.FileServices
         internal async Task Save(
             string message, 
             LogType logType, 
-            bool? saveInDatabase)
+            bool? saveInDatabase,
+            string? saveType,
+            bool? isSentEmail,
+            string? path_to_save_log,
+            string? log_file_name)
         {
             try
             {
                 //  Send into a database
                 if (ShouldSaveInDb(saveInDatabase, logType))
                     DatabaseServices.DatabaseServices.SaveIntoDatabase(
-                        configuration.Database_Configuration.Global_Database_Type,
-                        storeLog(message, false, logType, saveInDatabase, FileSaveType.DontSave, "", ""),
-                        false, saveInDatabase);
+                        storeLog(message, isSentEmail, logType, saveInDatabase, saveType, path_to_save_log, log_file_name));
             }
             catch(Exception ex)
             {
@@ -92,9 +94,9 @@ namespace SimpLog.Databases.PostgreSQL.Services.FileServices
         {
             //  Check if the db log is active at global level.
             if(saveInDatabase is false ||
-                (configuration.Database_Configuration.Global_Enabled_Save is not null && configuration.Database_Configuration.Global_Enabled_Save is false) ||
-                configuration.Database_Configuration.Connection_String is null ||
-                CheckDbTypeFormat() is false)
+                (configuration.Database_Configuration.Global_Enabled_Save is not null && 
+                configuration.Database_Configuration.Global_Enabled_Save is false) ||
+                configuration.Database_Configuration.Connection_String is null)
                 return false;
 
             switch (logType)
@@ -145,29 +147,6 @@ namespace SimpLog.Databases.PostgreSQL.Services.FileServices
 
             return true;
         }
-
-        /// <summary>
-        /// Checks if the string typed as db format is in the options.
-        /// </summary>
-        /// <returns></returns>
-        internal bool CheckDbTypeFormat()
-        {
-            switch (configuration.Database_Configuration.Global_Database_Type)
-            {
-                case "MSSql":
-                    return true;
-                case "MySql":
-                    return true;
-                case "PostgreSQL":
-                    return true;
-                case "Oracle":
-                    return true;
-                case "MongoDb":
-                    return true;
-                default :
-                    return false;
-            }
-        }
         
         /// <summary>
         /// Populates the object for StoreLog in database table
@@ -185,7 +164,7 @@ namespace SimpLog.Databases.PostgreSQL.Services.FileServices
             bool? isEmailSent, 
             LogType? logType, 
             bool? saveInDatabase, 
-            FileSaveType? saveType, 
+            string? saveType, 
             string? path_to_save_log,
             string? log_file_name)
         {
@@ -196,9 +175,9 @@ namespace SimpLog.Databases.PostgreSQL.Services.FileServices
                 Log_SendEmail = isEmailSent,
                 Log_Type = logType.ToString(),
                 Saved_In_Database = saveInDatabase,
-                Log_File_Save_Type = saveType.Value.DisplayName(),
-                Log_Path = "",
-                Log_FileName = ""
+                Log_File_Save_Type = saveType,
+                Log_Path = path_to_save_log,
+                Log_FileName = log_file_name
             };
 
             return storeLog;

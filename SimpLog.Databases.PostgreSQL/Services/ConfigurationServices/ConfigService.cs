@@ -46,7 +46,6 @@ namespace SimpLog.Databases.PostgreSQL.Services.ConfigurationServices
                     Database_Configuration = new DatabaseConfiguration()
                     {
                         Connection_String = null,
-                        Global_Database_Type = null,
                         Global_Enabled_Save = null,
                         Use_OleDB = null
                     },
@@ -89,7 +88,6 @@ namespace SimpLog.Databases.PostgreSQL.Services.ConfigurationServices
             #region Database Configuration Get From Json
 
             _Connection_String = simpLogConfig.Database_Configuration.Connection_String;
-            _Global_Database_Type = simpLogConfig.Database_Configuration.Global_Database_Type;
             _Use_OleDB = simpLogConfig.Database_Configuration.Use_OleDB;
             _Global_Enabled_Save = simpLogConfig.Database_Configuration.Global_Enabled_Save;
 
@@ -139,7 +137,6 @@ namespace SimpLog.Databases.PostgreSQL.Services.ConfigurationServices
                 Database_Configuration  = new DatabaseConfiguration()
                 {
                     Connection_String       = _Connection_String,
-                    Global_Database_Type    = _Global_Database_Type,
                     Use_OleDB               = _Use_OleDB,
                     Global_Enabled_Save     = _Global_Enabled_Save
                 },

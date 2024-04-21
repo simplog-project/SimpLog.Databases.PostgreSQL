@@ -5,12 +5,12 @@
     <Nullable>enable</Nullable>
     <PackageId>SimpLog.Databases.PostgreSQL</PackageId>
     <Title>SimpLog.Databases.PostgreSQL</Title>
-    <Version>0.0.1-alpha1</Version>
+    <Version>1.0.0</Version>
     <Authors>Georgi Chekanov</Authors>
     <Company>Georgi Chekanov</Company>
     <Product>SimpLog</Product>
     <Description>Log from server into PostgreSQL database.</Description>
-    <Copyright>Copyright (c) Georgi Chekanov 2023</Copyright>
+    <Copyright>Copyright (c) Georgi Chekanov 2024</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>log, postgre log, simple log, postgre sql, database log</PackageTags>
     <PackageReleaseNotes>- separated functionality for PostgreSQL log from SimpLog</PackageReleaseNotes>
@@ -18,6 +18,7 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <AssemblyName>SimpLog.Databases.PostgreSQL</AssemblyName>
     <RootNamespace>SimpLog.Databases.PostgreSQL</RootNamespace>
+    <RepositoryUrl>https://github.com/simplog-project/SimpLog.Databases.PostgreSQL</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using SimpLog.Databases.PostgreSQL.Models.AppSettings;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SimpLog.Databases.PostgreSQL.Services.DatabaseServices
 {
@@ -13,7 +14,7 @@ namespace SimpLog.Databases.PostgreSQL.Services.DatabaseServices
         /// </summary>
         /// <param name="connection"></param>
         /// <param name="cmd"></param>
-        public static void CreatePostgreSqlIfNotExists(NpgsqlConnection connection, NpgsqlCommand cmd)
+        public static async Task CreatePostgreSqlIfNotExists(NpgsqlConnection connection)
         {
             StringBuilder query = new StringBuilder();
             query.Append($" create table if not exists StoreLog ");
@@ -40,14 +41,12 @@ namespace SimpLog.Databases.PostgreSQL.Services.DatabaseServices
             query.Append($"   ,\"{"Time_Sent"}\" varchar(50) ");
             query.Append($"    ); ");
 
-            cmd.CommandText = query.ToString();
+            using var cmd = new NpgsqlCommand(query.ToString(), connection);
 
-            connection.Open();
+            if (connection.State != System.Data.ConnectionState.Open)
+                await connection.OpenAsync();
 
-            cmd.ExecuteNonQuery();
-
-            connection.Close();
+            await cmd.ExecuteNonQueryAsync();
         }
-
     }
 }

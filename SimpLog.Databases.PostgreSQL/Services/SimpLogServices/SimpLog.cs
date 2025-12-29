@@ -22,19 +22,19 @@ namespace SimpLog.Databases.PostgreSQL.Services.SimpLogServices
             => await _fileService.Save(message, LogType.Debug, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
 
         public async Task Info(string message, bool? saveInDatabase = true)
-            => await _fileService.Save(message, LogType.Debug, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
+            => await _fileService.Save(message, LogType.Info, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
         
         public async Task Notice(string message, bool? saveInDatabase = true)
-            => await _fileService.Save(message, LogType.Debug, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
+            => await _fileService.Save(message, LogType.Notice, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
 
         public async Task Warn(string message, bool? saveInDatabase = true)
-            => await _fileService.Save(message, LogType.Debug, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
+            => await _fileService.Save(message, LogType.Warn, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
 
         public async Task Error(string message, bool? saveInDatabase = true)
-            => await _fileService.Save(message, LogType.Debug, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
+            => await _fileService.Save(message, LogType.Error, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
 
         public async Task Fatal(string message, bool? saveInDatabase = true)
-            => await _fileService.Save(message, LogType.Debug, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
+            => await _fileService.Save(message, LogType.Fatal, saveInDatabase, string.Empty, false, string.Empty, string.Empty);
 
         public async Task SaveIntoPostgreSQL(string message, bool? saveInDatabase = true, LogType logType = LogType.Info, string? saveType = null, bool? isSentEmail = null, bool? isSavedIntoFile = false, string? path_to_save_log = null, string? log_file_name = null)
             => await _fileService.Save(message, logType, saveInDatabase, saveType, isSentEmail, path_to_save_log, log_file_name);

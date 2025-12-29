@@ -5,14 +5,14 @@
     <Nullable>enable</Nullable>
     <PackageId>SimpLog.Databases.PostgreSQL</PackageId>
     <Title>SimpLog.Databases.PostgreSQL</Title>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Georgi Chekanov</Authors>
     <Company>Georgi Chekanov</Company>
     <Product>SimpLog</Product>
-    <Description>Log from server into PostgreSQL database.</Description>
-    <Copyright>Copyright (c) Georgi Chekanov 2024</Copyright>
+    <Description>SimpLog.Databases.PostgreSQL is a lightweight .NET logging library that allows applications to log messages directly into Postgre SQL Server. It supports multiple log levels (Trace, Debug, Info, Notice, Warn, Error, Fatal) and automatically manages database tables if they don’t exist. Fully configurable and easy to integrate in .NET applications.</Description>
+    <Copyright>Copyright (c) Georgi Chekanov 2025</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>log, postgre log, simple log, postgre sql, database log</PackageTags>
+    <PackageTags>logging, database, postgre, log, dotnet</PackageTags>
     <PackageReleaseNotes>- separated functionality for PostgreSQL log from SimpLog</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
@@ -22,14 +22,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Npgsql" Version="8.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="Npgsql">
+      <Version>10.0.1</Version>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
